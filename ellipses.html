@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height: 152px;
+        border: 2px solid blue;
+    }
+    .p1{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    #pr{
+        display: none;
+    }
+    div:hover +#pr{
+        display: block;
+        background-color: antiquewhite;
+        width: 250px;
+        border: 2px solid red;
+
+    }
+</style>
+<body>
+    <div>
+        <p class="p1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo beatae non optio exercitationem ipsum suscipit aliquam reiciendis quibusdam, saepe illo corrupti molestias ea nisi sed, ullam perferendis dolorum cumque odio.
+        </p>
+    </div>
+    <p id="pr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum nemo omnis mollitia eaque est. Quis est doloribus amet dolorem numquam saepe explicabo, voluptatum aperiam, iusto accusamus ipsam enim harum deserunt.</p>
+    
+</body>
+</html>

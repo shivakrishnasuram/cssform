@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 50vh;
+            padding: 20px;
+            background: linear-gradient(135deg, red, white);
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            max-width: 300px;
+            min-width: 200px;
+        }
+
+        label,
+        input {
+            padding: 6px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 15px;
+            margin: 10px;
+            width: 80%;
+        }
+        label{
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            width: 50%;
+            padding: 8px;
+            border-radius: 10px;
+            border: none;
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+            /* text-align: center; */
+            display: block;
+            margin: 0 auto;
+            /* Centering horizontally */
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form" action="">
+        <h4>suram shiva krishna is genious</h4>
+        <div id="something">
+            <label for="username">enter your name</label>
+            <input type="text">
+            <br>
+            <label for="email"> enter your gmail</label>
+            <input type="email">
+            <br>
+            <label for="submit">submit the form</label>
+            <input type="submit">
+        </div>
+    </form>
+
+</body>
+
+</html>
