@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Navbar with CSS Animations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f8f9fa;
+            /* background: url(./IMG_20240218_121813.jpg); */
+            /* z-index: 1; */
+        }
+        
+        /* Navbar Styling */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: aqua;
+            padding: 15px 30px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 20px;
+        }
+        nav ul li {
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+        nav ul li:hover {
+            border-bottom: 2px solid green;
+        }
+        button {
+            background: linear-gradient(135deg, lightgreen, blue);
+            cursor: pointer;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+        }
+        button:hover {
+            background: linear-gradient(135deg, blue, lightgreen);
+        }
+        
+        /* Main Content */
+        .main {
+            width: 100%;
+            min-height: 90vh;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+        
+        .left {
+            flex: 1;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            text-align: left;
+            padding-left: 30px;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideLeft 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+        
+        .left h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .left h2 {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideRight 1s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+
+        .right img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Slide-in from left */
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Slide-in from right */
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            nav ul {
+                padding-top: 10px;
+            }
+            .main {
+                flex-direction: column;
+                text-align: center;
+            }
+            .left {
+                padding: 0 20px;
+            }
+            .right img {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1><span style="color: green;">SK</span>rishna</h1>
+        <ul>
+            <li>Home</li>
+            <li>Cards</li>
+            <li>Something</li>
+            <li>DJ Seeru</li>
+            <li>Contact</li>
+        </ul>
+        <button>Click here for more</button>
+    </nav>
+
+    <div class="main">
+        <div class="left">
+            <h1>Landing page template for developers & startups</h1>
+            <h2>React.js is a powerful library for building modern frontend applications.</h2>
+        </div>
+        <div class="right">
+            <img src="./IMG_20240218_121813.jpg" alt="Landing Page Image">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scrolling Cards Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #111;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow-x: hidden;
+            perspective: 1000px;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px;
+            scroll-snap-type: x mandatory;
+            width: 90vw;
+            animation: smoothScroll 10s linear infinite alternate;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding-bottom: 20px;
+        }
+
+        .card {
+            width: 350px;
+            height: 200px;
+            background: linear-gradient(135deg, #ff7eb3, #ff758c);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateX(50px) scale(0.9) rotateY(10deg);
+            transition: all 0.8s ease-in-out;
+            scroll-snap-align: start;
+        }
+
+        .card:nth-child(odd) {
+            background: linear-gradient(135deg, #7efff5, #0099ff);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateX(0) scale(1) rotateY(0);
+            animation: glow 1.5s ease-in-out, slideIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateX(50px) scale(0.9) rotateY(10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1) rotateY(0);
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes smoothScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Scroll Horizontally to See the Magic ✨</h1>
+    <div class="scroll-container">
+        <div class="container">
+            <div class="card">Card 1</div>
+            <div class="card">Card 2</div>
+            <div class="card">Card 3</div>
+            <div class="card">Card 4</div>
+            <div class="card">Card 5</div>
+            <div class="card">Card 6</div>
+        </div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll(".card");
+
+        const showCards = () => {
+            const triggerRight = window.innerWidth * 0.8;
+            
+            cards.forEach(card => {
+                const cardLeft = card.getBoundingClientRect().left;
+                
+                if (cardLeft < triggerRight) {
+                    card.classList.add("visible");
+                }
+            });
+        };
+
+        document.querySelector(".scroll-container").addEventListener("scroll", showCards);
+        showCards();
+    </script>
+</body>
+</html>
